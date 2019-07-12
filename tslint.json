@@ -1,0 +1,37 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+      "tslint-immutable",
+      "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "curly": false,
+    "interface-name": false,
+    "max-classes-per-file": false,
+    "member-access": [true, "no-public", "check-accessor"],
+    "member-ordering": false,
+    "no-angle-bracket-type-assertion": false,
+    "no-array-mutation": [true, "ignore-new-array"],
+    "no-console": false,
+    "no-empty": false,
+    "no-let": true,
+    "no-object-mutation": true,
+    "no-parameter-reassignment": true,
+    "no-shadowed-variable": false,
+    "no-var-keyword": true,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-sort-keys": false,
+    "only-arrow-functions": false,
+    "quotemark": false,
+    "semicolon": [true, "never"],
+    "space-before-function-paren": false,
+    "trailing-comma": [true, {
+      "multiline": "never",
+      "esSpecCompliant": true
+    }],
+    "variable-name": false
+  },
+  "rulesDirectory": []
+}
