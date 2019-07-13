@@ -3,9 +3,11 @@ import { hot } from 'react-hot-loader/root'
 import { css } from '@emotion/core'
 import { useReducer } from 'react'
 
+import Death from './components/Death'
 import Field from './components/Field'
 import Panel from './components/Panel'
-import { Dispatch, initialState, reducer, State } from './Context'
+import { Dispatch, initialState, State } from './Context'
+import { reducer } from "./reducer"
 
 const style = css({
   margin: 'auto',
@@ -28,7 +30,7 @@ const style = css({
   backgroundColor: 'hsl(120, 100%, 80%)',
   color: 'hsl(120, 100%, 5%)',
   fontFamily: 'sans-serif',
-  boxShadow: '0 0 5px hsl(120, 100%, 40%)',
+  boxShadow: '0 0 var(--gap) hsl(120, 100%, 40%)',
 
   '@media (max-aspect-ratio: 4/5)': {
     '--width': '100vw'
@@ -36,12 +38,18 @@ const style = css({
 })
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, {
+    ...initialState,
+    ...JSON.parse(localStorage.getItem('record') || '{}')
+  })
   return <div css={style}>
     <Dispatch.Provider value={dispatch}>
       <State.Provider value={state}>
         <Panel />
-        <Field />
+        <div>
+          <Field />
+          <Death />
+        </div>
       </State.Provider>
     </Dispatch.Provider>
   </div>

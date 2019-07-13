@@ -7,7 +7,7 @@ const style = css({
   '--btn-padding': 'calc(var(--width) * 0.01)',
   padding: 'var(--btn-padding)',
   backgroundColor: 'hsl(120, 60%, 40%)',
-  boxShadow: '0 0 6px hsl(120, 60%, 40%)',
+  boxShadow: '0 0 var(--gap) hsl(120, 60%, 40%)',
   textAlign: 'center',
   userSelect: 'none',
   transition: 'background-color 0.1s',

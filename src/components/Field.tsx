@@ -4,6 +4,8 @@ import range from 'lodash.range'
 import Block from './Block'
 
 const style = css({
+  position: 'absolute',
+  zIndex: 0,
   width: 'var(--field)',
   height: 'var(--field)',
   display: 'grid',
@@ -18,5 +20,5 @@ const style = css({
 })
 
 export default () => <div css={style}>{
-  range(64).map(n => <Block key={n} no={n} />)
+  range(64).map(n => <Block key={n} block={n} />)
 }</div>

@@ -1,11 +1,10 @@
 import { css } from '@emotion/core'
-import { useContext } from 'react'
 
-import { Dispatch, State } from '../Context'
+import { Action, Actions, useContext } from '../Context'
 import Button from './Button'
 
 export interface Props {
-  no: number
+  block: number
 }
 
 const style = css({
@@ -14,15 +13,11 @@ const style = css({
   lineHeight: 'var(--font-size)'
 })
 
-export default ({ no }: Props) => {
-  const state = useContext(State)
-  const dispatch = useContext(Dispatch)
-  const bug = state.bugs.includes(no)
+export default ({ block }: Props) => {
+  const [state, dispatch] = useContext()
+  const bug = state.bugs.includes(block)
   const clickHandler = bug
-                     ? () => dispatch({
-                         bugs: state.bugs.filter(n => n !== no),
-                         score: state.score + 1
-                       })
+                     ? () => dispatch(new Action(Actions.catch, block))
                      : () => {}
   return <Button css={style} onClick={clickHandler}>{bug && '🐛'}</Button>
 }
