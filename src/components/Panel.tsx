@@ -47,7 +47,7 @@ export default () => {
       setInterval(() => dispatch(new Action(Actions.diffInc)), 50)
     else {
       clearTimeout()
-      localStorage.setItem('record', JSON.stringify({
+      localStorage.setItem('catchTheBugs', JSON.stringify({
         highest: state.highest,
         highestCaught: state.highestCaught,
         lowestInterval: state.lowestInterval

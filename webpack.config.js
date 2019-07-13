@@ -39,10 +39,8 @@ module.exports = {
       filename: '[name].[hash].css'
     }),
     new HtmlWebpackPlugin({
-      inject: false,
-      template: require('html-webpack-template'),
-      title: 'Catch the Bugs!',
-      appMountId: 'app',
+      inject: true,
+      template: 'src/index.html',
       minify: (!whenDev) && {
         collapseWhitespace: true,
         removeComments: true,

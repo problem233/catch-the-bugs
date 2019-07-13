@@ -40,7 +40,7 @@ const style = css({
 const App = () => {
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
-    ...JSON.parse(localStorage.getItem('record') || '{}')
+    ...JSON.parse(localStorage.getItem('catchTheBugs') || '{}')
   })
   return <div css={style}>
     <Dispatch.Provider value={dispatch}>
