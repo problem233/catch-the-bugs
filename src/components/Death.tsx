@@ -33,9 +33,9 @@ const style = css({
   }
 })
 
-const withHighest = (state: State, highest = state.highest) =>
+const withHighest = (state: State, score = state.score) =>
   (a: string, b: string, c: string) =>
-    highest <= 250 ? a : highest <= 500 ? b : c
+    score <= 250 ? a : score <= 500 ? b : c
 
 export default () => {
   const [state, dispatch] = useContext()
